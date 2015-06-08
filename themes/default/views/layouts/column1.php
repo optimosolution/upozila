@@ -9,7 +9,11 @@
             </div>
             <!-- /BLOG ARTICLE LIST -->
             <!-- BLOG SIDEBAR -->
-            <div class="col-md-3 col-sm-3">                
+            <div class="col-md-3 col-sm-3">  
+                <!-- Advertisement -->
+                <div class="widget">
+                    <?php $this->get_advertisement(6); ?>                    
+                </div>
                 <!-- Video -->
                 <div class="widget">
                     <iframe width="265" height="215" src="//www.youtube.com/embed/<?php echo $this->get_youtube_video(); ?>" frameborder="0" allowfullscreen></iframe>                
@@ -48,7 +52,7 @@
                     <?php
                     $this->widget('application.extensions.fbLikeBox.fbLikeBox', array(
                         'likebox' => array(
-                            'url' => 'https://www.facebook.com/upozila',
+                            'url' => 'https://www.facebook.com/pages/upozilacom/740484829358173',
                             'header' => 'true',
                             'width' => '260',
                             'height' => '400',

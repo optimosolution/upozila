@@ -259,4 +259,15 @@ class ContentCategory extends CActiveRecord {
         }
     }
 
+    public static function get_category_list($catid) {
+        $array = ContentCategory::model()->findAll(
+                array(
+                    'condition' => 'published=1 AND parent_id=' . (int) $catid,
+                    'order' => 'title ASC, created_time DESC',
+        ));
+        foreach ($array as $key => $value) {
+            echo '<div>' . CHtml::link('<i class="fa fa-sign-out"></i> ' . $value['title'], array('news/upozila', 'id' => $value['id']), array()) . '</div>';
+        }
+    }
+
 }

@@ -45,7 +45,7 @@
                     <?php
                     $this->widget('application.extensions.fbLikeBox.fbLikeBox', array(
                         'likebox' => array(
-                            'url' => 'https://www.facebook.com/mujibsenanews',
+                            'url' => 'https://www.facebook.com/pages/upozilacom/740484829358173',
                             'header' => 'true',
                             'width' => '260',
                             'height' => '400',

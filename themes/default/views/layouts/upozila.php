@@ -24,28 +24,8 @@
                 <!-- search -->
                 <!-- RECENT,POPULAR,COMMENTS -->
                 <div class="widget">
-                    <!-- TABS -->
-                    <div class="tabs nomargin-top">
-                        <!-- tabs -->
-                        <ul class="nav nav-tabs nav-justified">
-                            <li class="active"><a href="#tab1" data-toggle="tab"><?php echo Title::get_title(2); ?></a></li>
-                            <li><a href="#tab2" data-toggle="tab"><?php echo Title::get_title(3); ?></a></li>
-                            <li><a href="#tab3" data-toggle="tab"><?php echo Title::get_title(4); ?></a></li>
-                        </ul>
-                        <!-- tabs content -->
-                        <div class="tab-content">
-                            <div id="tab1" class="tab-pane active">
-                                <?php Content::get_recent(); ?>
-                            </div>
-                            <div id="tab2" class="tab-pane"><!-- tab content -->
-                                <?php Content::get_popular(); ?>
-                            </div>
-                            <div id="tab3" class="tab-pane"><!-- tab content -->
-                                <?php ResourceComment::get_recent_comments(); ?>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /TABS -->
+                    <h3>UNION</h3>
+                    <?php ContentCategory::get_category_list($_GET['id']); ?>
                 </div>
                 <!-- Advertisement -->
                 <div class="widget">

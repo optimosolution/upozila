@@ -26,7 +26,7 @@ class NewsController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
+                'actions' => array('index', 'view', 'upozila'),
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -129,6 +129,23 @@ class NewsController extends Controller {
         $criteria = new CDbCriteria;
         $criteria->addCondition('state=1');
         $criteria->addCondition('catid=' . (int) $id);
+        $dataProvider = new CActiveDataProvider('Content', array(
+            'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => 10,
+            ),
+        ));
+        $criteria->order = 'created DESC, id DESC';
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+        ));
+    }
+
+    public function actionUpozila($id) {
+        $this->layout = '//layouts/upozila';
+        $criteria = new CDbCriteria;
+        $criteria->addCondition('state=1');
+        $criteria->addCondition('catid IN (SELECT c.id FROM {{content_category}} c WHERE c.id=' . $id . ' OR c.parent_id=' . $id . ')');
         $dataProvider = new CActiveDataProvider('Content', array(
             'criteria' => $criteria,
             'pagination' => array(

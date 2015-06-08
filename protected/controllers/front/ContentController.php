@@ -117,7 +117,7 @@ class ContentController extends Controller {
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));
-    }
+    }    
 
     /**
      * Manages all models.
